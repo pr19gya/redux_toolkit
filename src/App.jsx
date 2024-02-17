@@ -1,15 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Products from './components/Products'
+
+
+import { createBrowserRouter, RouterProvider, Route, Link, createRoutesFromElements } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
+import Products from './components/Products.jsx';
+import Cart from './components/Cart.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import Rootlayout from './components/Rootlayout.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router=createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Rootlayout/>}>
+      <Route index element={<Dashboard/>}/>
+      <Route path="/cart" element={<Cart/>}/>
+    </Route>
+  ))
 
   return (
     <>
-      <Products/>
+     <div className='App'>
+      <RouterProvider router={router}/>
+    </div>
     </>
   )
 }

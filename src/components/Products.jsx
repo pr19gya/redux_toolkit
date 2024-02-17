@@ -29,7 +29,7 @@ const[products, getProducts]=useState([]);
 
   return (
     <>
-    <div className='pt-[10rem] grid grid-cols-4 '>
+    <div className=' grid grid-cols-4 '>
         {cards}
     </div>
     </>
